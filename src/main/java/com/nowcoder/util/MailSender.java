@@ -18,7 +18,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.velocity.VelocityEngineUtils;
 
 /**
- * Created by nowcoder on 2016/7/15. // course@nowcoder.com NKnk66
+ * 邮件发布
+ * @author 86156
+ *
  */
 @Service
 public class MailSender implements InitializingBean {

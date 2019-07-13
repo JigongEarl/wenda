@@ -47,7 +47,11 @@ public class RedisKeyUtils {
     public static String getDisLikeKey(int entityType, int entityId) {
         return DISLIKE + SPLIT + String.valueOf(entityType) + SPLIT + String.valueOf(entityId);
     }
-
+    
+    /**
+     * 异步队列
+     * @return
+     */
     public static String getEventQueueKey() {
         return EVENTQUEUE;
     }

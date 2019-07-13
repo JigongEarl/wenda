@@ -12,6 +12,11 @@ import org.springframework.stereotype.Service;
 
 import com.nowcoder.model.Message;
 import com.nowcoder.model.TriedNode;
+/**
+ * 敏感词处理
+ * @author 86156
+ *
+ */
 @Service
 public class SensitiveServiceImpl implements InitializingBean{
 	
@@ -90,7 +95,7 @@ public class SensitiveServiceImpl implements InitializingBean{
 	
 
     /**
-         * 过滤敏感词
+     * 过滤敏感词
      */
     public String filter(String text) {
         if (StringUtils.isBlank(text)) {
