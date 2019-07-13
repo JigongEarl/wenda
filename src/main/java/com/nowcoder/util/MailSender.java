@@ -55,16 +55,13 @@ public class MailSender implements InitializingBean {
     public void afterPropertiesSet() throws Exception {
         mailSender = new JavaMailSenderImpl();
         mailSender.setUsername("15682036614@163.com");
-        mailSender.setPassword("6377116");
+        mailSender.setPassword("*********");
         mailSender.setHost("smtp.163.com");
-        //mailSender.setHost("smtp.qq.com");
         mailSender.setPort(465);
         mailSender.setProtocol("smtps");
         mailSender.setDefaultEncoding("utf8");
         Properties javaMailProperties = new Properties();
         javaMailProperties.put("mail.smtp.ssl.enable", true);
-        //javaMailProperties.put("mail.smtp.auth", true);
-        //javaMailProperties.put("mail.smtp.starttls.enable", true);
         mailSender.setJavaMailProperties(javaMailProperties);
     }
 }
