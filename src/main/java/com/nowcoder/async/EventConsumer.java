@@ -31,7 +31,7 @@ public class EventConsumer implements  ApplicationContextAware, InitializingBean
 	//应用上下文对象
 	private ApplicationContext applicationContext;
 	
-	//按时间类型分类存放所有事件处理器的容器   key:事件类型  value：支持该事件类型的所有事件处理器
+	//按事件类型分类存放所有事件处理器的容器   key:事件类型  value：支持该事件类型的所有事件处理器
 	private Map<EventType, List<EventHandler>> config = new HashMap<>();
 
 	@Autowired
