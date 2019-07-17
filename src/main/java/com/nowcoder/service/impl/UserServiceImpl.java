@@ -23,9 +23,6 @@ import com.nowcoder.model.User;
 import com.nowcoder.service.UserService;
 import com.nowcoder.util.WendaUtil;
 
-/**
- * Created by nowcoder on 2016/7/2.
- */
 @Service
 public class UserServiceImpl implements UserService{
 	
