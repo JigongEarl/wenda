@@ -1,6 +1,5 @@
 package com.nowcoder.controller;
 
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +20,6 @@ import com.nowcoder.util.JsonUtils;
 
 @Controller
 public class LikeController {
-	private static final Logger logger = Logger.getLogger(LikeController.class);
 	
 	@Autowired
 	private LikeService likeServiceImpl;
@@ -65,6 +63,7 @@ public class LikeController {
 		
 		return JsonUtils.objectToJson(result);
 	}
+	
 	
 	/**
 	 * 踩赞

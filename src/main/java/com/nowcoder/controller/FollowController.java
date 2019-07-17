@@ -72,7 +72,7 @@ public class FollowController {
 
 		boolean ret = followServiceImpl.follow(hostHolder.getUser().getId(), EntityType.ENTITY_USER, userId);
 		
-		//加入异步处理队列
+		//发送站内信通知，通知被关注人被关注
 		eventProducer.fireEvent(new EventModel(EventType.FOLLOW).setActorId(hostHolder.getUser().getId())
 				.setEntityId(userId).setEntityType(EntityType.ENTITY_USER).setEntityOwnerId(userId));
 
@@ -133,7 +133,7 @@ public class FollowController {
 		
 		boolean ret = followServiceImpl.follow(hostHolder.getUser().getId(),
 												EntityType.ENTITY_QUESTION, questionId);
-		//发送站内信通知
+		//发送站内信通知，通知被关注人该问题被关注
 		eventProducer.fireEvent(new EventModel(EventType.FOLLOW)
 				   .setActorId(hostHolder.getUser().getId()).setEntityId(questionId)
 				   .setEntityType(EntityType.ENTITY_QUESTION).setEntityOwnerId(ques.getUserId()));

@@ -26,10 +26,7 @@ public class JedisDAO {
 	private static final Logger logger = Logger.getLogger(JedisDAO.class);
 	@Resource
 	private JedisCluster jedisCluster;
-
-//	static void print(int index, Object obj) {
-//		System.out.println(String.format("%d, %s", index, obj.toString()));
-//	} 
+	
 
 	////// redis之Set无序集合(集合不可重复)，用于点赞、踩赞、抽奖、已读、共同好友等功能
 	/**
@@ -75,8 +72,8 @@ public class JedisDAO {
 		return jedisCluster.srem(key, value);
 	}
 
+	
 	////// redis之List双向列表，适用于最新列表、关注列表等功能
-
 	/**
 	 * 入队，插入到列表头部，如果key不存在将创建新列表
 	 * 
@@ -87,7 +84,6 @@ public class JedisDAO {
 	public long lpush(String key, String value) {
 		return jedisCluster.lpush(key, value);
 	}
-	
 	
 	/**
 	 * 获取列表中指定区间的元素
@@ -123,8 +119,8 @@ public class JedisDAO {
 		return jedisCluster.blpop(timeout, key);
 	}
 
-	////// redis之SortedSet,适用于排行榜，优先队列
 
+	////// redis之SortedSet,适用于排行榜，优先队列
 	/**
 	 * 向有序集合添加元素
 	 * 
@@ -148,7 +144,6 @@ public class JedisDAO {
 		return jedisCluster.zrem(key, value);
 	}
 	
-	
 	/**
      * 通过索引区间返回有序集合成指定区间内的元素
      * @param key
@@ -160,7 +155,6 @@ public class JedisDAO {
             return jedisCluster.zrange(key, start, end);
     }
 	    
-
 	/**
      * 返回有序集中指定区间内的元素，通过索引，分数从高到底  若end=-1表示最后一个元素，即返回所有
      * @param key
@@ -172,7 +166,6 @@ public class JedisDAO {
         return jedisCluster.zrevrange(key, start, end);
     }
 
-	    
 	/**
      * 获取有序集合的元素数
      * @param key
@@ -181,7 +174,6 @@ public class JedisDAO {
     public long zcard(String key) {
         return jedisCluster.zcard(key);
     }
-
 	    
 	/**
      * 返回指定元素的分数值
@@ -192,34 +184,4 @@ public class JedisDAO {
     public Double zscore(String key, String member) {
 		return jedisCluster.zscore(key, member);
     }
-
-    
-//	public Transaction multi(Jedis jedis) {
-//		return jedisCluster.;
-//	}
-//
-//	public List<Object> exec(Transaction tx, Jedis jedis) {
-//		return tx.exec();
-//	}catch(
-//
-//	Exception e)
-//	{
-//		logger.error("发生异常" + e.getMessage());
-//		tx.discard();
-//	}finally
-//	{
-//		if (tx != null) {
-//			try {
-//				tx.close();
-//			} catch (IOException ioe) {
-//				// ..
-//			}
-//		}
-//
-//		if (jedisCluster != null) {
-//			jedisCluster.close();
-//		}
-//	}return null;
-//	}
-
 }

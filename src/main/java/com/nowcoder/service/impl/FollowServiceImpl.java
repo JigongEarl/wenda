@@ -19,7 +19,9 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Created by rainday on 16/8/11.
+ * 关注/取消关注实体
+ * @author 86156
+ *
  */
 @Service
 public class FollowServiceImpl implements FollowService{

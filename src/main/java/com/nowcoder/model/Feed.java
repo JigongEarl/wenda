@@ -7,7 +7,9 @@ import java.io.IOException;
 import java.util.Date;
 
 /**
- * Created by nowcoder on 2016/8/12.
+ * feed实体类
+ * @author 86156
+ *
  */
 public class Feed {
     private int id;
@@ -58,26 +60,23 @@ public class Feed {
     public void setData(String data) {
         this.data = data;
         try {
-        	System.out.println("OOOOOO"+data);
 			dataJSON =new ObjectMapper().readTree(data);
-			System.out.println("QQQQQQQQQ"+dataJSON);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
     }
 
 
-/*
- * velocity中的$obj.xxx，会自动匹配如下bean中的方法：
- * obj.getxxx()
- * obj.get("xxx")
- * obj.isxxx()等格式
- */
+	/*
+	 * velocity中的$obj.xxx，会自动匹配如下bean中的方法：
+	 * obj.getxxx()
+	 * obj.get("xxx")
+	 * obj.isxxx()等格式
+	 */
+    
     //dataJSON:表示整个json串(JsonNode对象)；findValue(key):获取串中指定key的value(依旧是一个JsonNode对象)，
     //asText():将jsonNode对象转为字符串
     public String get(String key) {
-    	System.out.println(dataJSON == null);
-    	System.out.println("+++"+key+":"+dataJSON.findValue(key).asText());
         return dataJSON == null ? null : dataJSON.findValue(key).asText();
     }
 }

@@ -75,7 +75,6 @@ public class FeedHandler implements EventHandler {
 			// 不支持的feed
 			return;
 		}
-		System.out.println("555"+feed);
 		feedServiceImpl.addFeed(feed);
 
 		// 获得所有粉丝
