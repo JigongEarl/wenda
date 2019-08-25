@@ -9,15 +9,13 @@ import org.springframework.web.util.HtmlUtils;
 import com.nowcoder.dao.QuestionDAO;
 import com.nowcoder.model.Question;
 import com.nowcoder.service.QuestionService;
-
-
 @Service
 public class QuestionServiceImpl implements QuestionService{
     @Autowired
     QuestionDAO questionDAO;
     @Autowired
     SensitiveServiceImpl sensitiveServiceImpl;
-    
+
     public List<Question> getLatestQuestions(int userId, int offset, int limit) {
         return questionDAO.selectLatestQuestions(userId, offset, limit);
     }
@@ -33,7 +31,7 @@ public class QuestionServiceImpl implements QuestionService{
 		 */
 		ques.setTitle(sensitiveServiceImpl.filter(ques.getTitle()));
 		ques.setContent(sensitiveServiceImpl.filter(ques.getContent()));
-		
+
 		return questionDAO.addQuestion(ques) > 0 ? ques.getId() : 0;
 	}
 

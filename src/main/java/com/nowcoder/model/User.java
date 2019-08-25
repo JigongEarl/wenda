@@ -1,7 +1,9 @@
 package com.nowcoder.model;
 
 /**
- * Created by nowcoder on 2016/6/26.
+ * 用户信息实体类
+ * @author 86156
+ *
  */
 public class User {
     private int id;
